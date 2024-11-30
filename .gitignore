@@ -1,0 +1,16 @@
+# Virtual environment
+.venv/
+# Environment variables
+.env
+# Byte-compiled / optimized / DLL files
+__pycache__/
+.pytest_cache/
+app/__pycache__/
+tests/__pycache__/
+*.py[cod]
+*$py.class
+#setings.json
+settings.json
+
+
+
