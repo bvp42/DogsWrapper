@@ -6,6 +6,8 @@ from app.utils import check_valid_breed, get_image_url
 from app import auth
 from passlib.context import CryptContext
 
+from dotenv import load_dotenv
+load_dotenv()
 
 app = FastAPI(description="Dog Wrapper API", version="1.0")
 

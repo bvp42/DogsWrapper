@@ -51,7 +51,7 @@ The Dog Wrapper API is a FastAPI-based application that provides endpoints to in
 
 ### Prerequisites
 
-- **Python 3.7+**: Ensure Python 3.7 or higher is installed on your system.
+- **Python 3.12+**: Ensure Python 3.12.6 or higher is installed on your system.
 - **MongoDB**: A running MongoDB instance (local or cloud). If you don't have MongoDB installed, follow the instructions below to set it up locally.
 
 ### Steps to Install and Run the API

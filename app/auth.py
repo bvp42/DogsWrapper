@@ -1,9 +1,8 @@
+import jwt
 from fastapi import HTTPException
-import jwt.exceptions
 from passlib.context import CryptContext
 from pydantic import BaseModel
 from datetime import datetime, timedelta, timezone
-import jwt
 from typing import Optional
 from app.database import MongoDBUsers
 import os
@@ -61,7 +60,8 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
         expire = datetime.now(timezone.utc) + \
             timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
-
+    print(dir(jwt))
+    print(jwt.__version__)  # Should print the version of PyJWT
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
