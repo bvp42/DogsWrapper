@@ -10,6 +10,7 @@ The Dog Wrapper API is a FastAPI-based application that provides endpoints to in
 - **User Creation**: Allows the creation of new users with password hashing.
 - **Breed Image Retrieval**: Fetches images for a given dog breed.
 - **Breed Stats**: Provides statistics on the most requested dog breeds.
+- **Support for docker**: Provides containerization using docker compose and docker file
 
 ## API Endpoints
 
@@ -116,3 +117,24 @@ fastapi run app/main.py
 To run the tests:
 ```bash
 pytest tests/pytest.py
+```
+
+### Steps to Install and Run the API
+
+## Prerequisites
+
+- Docker and Docker Compose installed on your machine
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/bvp42/DogsWrapper.git
+    cd your-repo
+    ```
+
+2. Build and run the Docker containers using Docker Compose:
+    ```bash
+    docker-compose build --no-cache  # Build the images without using the cache
+    docker-compose up -d  # Start the containers in detached mode
+    ```
