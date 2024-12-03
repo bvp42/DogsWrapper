@@ -102,10 +102,12 @@ The Dog Wrapper API is a FastAPI-based application that provides endpoints to in
 
 ### Setting the .env File
 
-Ensure you have the following environment variables set in your `.env` file whith the information for the jwt token and mongo url:
+Ensure you have the following environment variables set in your `.env` file whith the information for the jwt token and mongo url and load them:
 - `SECRET_KEY`
 - `MONGO_URI`
-
+  ```bash
+  source .env
+  ```
 ### Running Locally
 
 To run the FastAPI application:
