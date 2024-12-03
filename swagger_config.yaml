@@ -1,0 +1,123 @@
+swagger: "1.0"
+info:
+  title: Dog API
+  description: This API provides various endpoints for dog-related services such as user creation, dog breed image fetching, and breed statistics.
+  version: 1.0.0
+host: api.example.com
+basePath: /v1
+schemes:
+  - https
+paths:
+  /token:
+    post:
+      summary: Login and get an access token
+      description: Authenticates the user and returns an access token for subsequent requests.
+      parameters:
+        - in: body
+          name: form_data
+          description: User credentials for authentication
+          schema:
+            type: object
+            required:
+              - username
+              - password
+            properties:
+              username:
+                type: string
+              password:
+                type: string
+      responses:
+        200:
+          description: Successfully retrieved access token
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+              token_type:
+                type: string
+        400:
+          description: Incorrect username or password
+
+  /users:
+    post:
+      summary: Create a new user
+      description: Registers a new user with a hashed password in the system.
+      parameters:
+        - in: body
+          name: user
+          description: User details for registration
+          schema:
+            type: object
+            required:
+              - username
+              - password
+            properties:
+              username:
+                type: string
+              password:
+                type: string
+      responses:
+        200:
+          description: User created successfully
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+        400:
+          description: User already exists
+
+  /dog/breed/{breed_name}:
+    get:
+      summary: Get an image for a specific dog breed
+      description: Fetches an image for the given dog breed and logs the request.
+      parameters:
+        - in: path
+          name: breed_name
+          description: The name of the dog breed
+          required: true
+          type: string
+        - in: query
+          name: token
+          description: Bearer token for authorization
+          required: true
+          type: string
+      responses:
+        200:
+          description: Successfully retrieved breed image
+          schema:
+            type: object
+            properties:
+              image:
+                type: string
+              message:
+                type: string
+        404:
+          description: Breed not found
+
+  /dog/stats:
+    get:
+      summary: Get dog breed statistics
+      description: Retrieves statistics on the top dog breeds based on the number of requests made.
+      parameters:
+        - in: query
+          name: token
+          description: Bearer token for authorization
+          required: true
+          type: string
+      responses:
+        200:
+          description: Successfully retrieved breed statistics
+          schema:
+            type: object
+            properties:
+              stats:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    breed:
+                      type: string
+                    requests:
+                      type: integer
