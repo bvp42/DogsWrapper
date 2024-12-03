@@ -119,7 +119,7 @@ To run the tests:
 pytest tests/pytest.py
 ```
 
-### Steps to Install and Run the API
+### Steps to Install and Run the API with Docker
 
 ## Prerequisites
 
