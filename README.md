@@ -138,3 +138,19 @@ pytest tests/pytest.py
     docker-compose build --no-cache  # Build the images without using the cache
     docker-compose up -d  # Start the containers in detached mode
     ```
+
+
+## Running Tests and Coverage
+
+To run tests without coverage reports:
+```bash
+   pytest test/pytest.py
+```
+
+To run tests with coverage reports:
+```bash
+  coverage run -m pytest tests/pytest.py
+  coverage report -m
+  coverage html
+```
+The HTML report will be available in the htmlcov folder, where you can open index.html to view a detailed report.

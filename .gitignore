@@ -11,6 +11,8 @@ tests/__pycache__/
 *$py.class
 #setings.json
 settings.json
+#coverage
+.coverage
 
 
 
