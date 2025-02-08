@@ -1,4 +1,5 @@
 import jwt
+from dotenv import load_dotenv
 from fastapi import HTTPException
 from passlib.context import CryptContext
 from pydantic import BaseModel
@@ -6,6 +7,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional
 from app.database import MongoDBUsers
 import os
+load_dotenv()
 
 # JWT Secret and Algorithm
 SECRET_KEY = os.getenv("SECRET_KEY")
